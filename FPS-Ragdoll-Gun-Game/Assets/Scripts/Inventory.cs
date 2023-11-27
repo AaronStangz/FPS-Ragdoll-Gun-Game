@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     ItemManager ItemManager;
+    HoldGun HoldGun;
     public bool InvOpen = false;
-    public bool HoldingSomething = false;
     public GameObject inventory;
     public GameObject Fpcamera;
     [SerializeField] private PlayerCam cam;
     [SerializeField] private PlayerMovement move;
+    [SerializeField] private LayerMask InvItem;
+
+    public bool OpenHand;
+
+    [Header("On Hand Guns")]
+    public GameObject ar15OnHand;
 
     [Header("Guns")]
     public GameObject ak15Prefab;
@@ -18,9 +26,8 @@ public class Inventory : MonoBehaviour
     public GameObject natoPrefab;
 
     [Header("Items")]
-    public GameObject medsPrefab;
-    public GameObject energyDrinkPrefab;
-    public GameObject energyBarPrefab;
+    public GameObject barricadePrefab;
+    public GameObject spikeTrapPrefab;
 
     void Start()
     {
@@ -32,11 +39,7 @@ public class Inventory : MonoBehaviour
         Escape();
         ItemCheck();
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            InvOpen = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Tab)))
         {
             InvOpen = true;
         }
@@ -45,8 +48,8 @@ public class Inventory : MonoBehaviour
         {
             cam.enabled = false;
             move.enabled = false;
+            OpenHand = false;
             Fpcamera.transform.rotation = Quaternion.Euler(25, Fpcamera.transform.rotation.eulerAngles.y, Fpcamera.transform.rotation.eulerAngles.z);
-            HoldingSomething = false;
             inventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
@@ -56,7 +59,60 @@ public class Inventory : MonoBehaviour
             inventory.SetActive(false);
             move.enabled = true;
             cam.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.locked;
+        }
+
+        if (OpenHand == true)
+        {
+            ar15OnHand.SetActive(false);
+        }
+
+        if (Camera.main == null) return;
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 0;
+            mousePos = Camera.main.ScreenToViewportPoint(mousePos);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Debug.DrawRay(Camera.main.transform.position, ray.direction * 10);
+
+            if (Physics.Raycast(ray, out hit, 10, InvItem))
+            {
+                //Debug.Log("CanSelcet");
+                HoldGun HoldGun = hit.collider.GetComponent<HoldGun>();
+                if (HoldGun != null)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        if (hit.collider.gameObject.tag == "AK-47")
+                        {
+                            Debug.Log("SelcetedAK-47");
+                            HoldGun.Ak47();
+                        }
+                        else if(hit.collider.gameObject.tag == "AR-15")
+                        {
+                            Debug.Log("SelcetedAR-15");
+                            HoldGun.AR15();
+                        }
+                        else if(hit.collider.gameObject.tag == "Nato")
+                        {
+                            Debug.Log("SelcetedNato");
+                            HoldGun.Nato();
+                        }
+                        else if(hit.collider.gameObject.tag == "BarricadeBluePrint")
+                        {
+                            Debug.Log("SelcetedBarricadeBluePrint");
+                            HoldGun.BarricadeBluePrint();
+                        }
+                        else if (hit.collider.gameObject.tag == "SpikeTrapBluePrint")
+                        {
+                            Debug.Log("SelcetedSpikeTrapBluePrint");
+                            HoldGun.SpikeTrapBluePrint();
+                        }
+                        ForceEscape();
+                    }
+                }
+            }
         }
     }
 
@@ -70,7 +126,7 @@ public class Inventory : MonoBehaviour
                 ak15Prefab.SetActive(true);
             }
             else ak15Prefab.SetActive(false);
-            if (ItemManager.ar47 == 1)
+            if (ItemManager.ak47 == 1)
             {
                 ak47Prefab.SetActive(true);
             }
@@ -81,32 +137,38 @@ public class Inventory : MonoBehaviour
             }
             else natoPrefab.SetActive(false);
 
-            //////////////////////////[ Item ]///////////////////////////
-            
-            //if (ItemManager.meds >= 1)
+            //////////////////////////[ Items ]//////////////////////////
+            if (ItemManager.barricadeBluePrint == 1)
             {
-           //     medsPrefab.SetActive(true);
+                barricadePrefab.SetActive(true);
             }
-           // else medsPrefab.SetActive(false);
-           // if (ItemManager.energyDrink >= 1)
+            else barricadePrefab.SetActive(false);
+            if (ItemManager.spikeTrapBluePrint == 1)
             {
-          //      energyDrinkPrefab.SetActive(true);
+                spikeTrapPrefab.SetActive(true);
             }
-          //  else energyDrinkPrefab.SetActive(false);
-          //  if (ItemManager.energyBar >= 1)
-            {
-          //      energyBarPrefab.SetActive(true);
-            }
-          //  else energyBarPrefab.SetActive(false);
+            else spikeTrapPrefab.SetActive(false);
+
         }
         else return;
     }
+
+    public void holdAR15()
+    {
+        Debug.Log("holdAR15");
+        OpenHand = false;
+        ar15OnHand.SetActive(true);
+        ForceEscape();
+        OpenHand = false;
+    }
+
 
     void Escape()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && InvOpen == true)
         {
             ForceEscape();
+            OpenHand = false;
         }
     }
 

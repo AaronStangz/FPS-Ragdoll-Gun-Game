@@ -14,7 +14,6 @@ public class LootBox : MonoBehaviour
     {
         if(opened == false)
         {
-
             Instantiate(Item[Random.Range(0, Item.Count)], spawnPoint.transform.position, spawnPoint.transform.rotation);
             Destroy(lid);
             opened = true;

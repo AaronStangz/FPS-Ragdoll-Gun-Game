@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AK-47
+  - AR-15
+  - Nato
+  - BarricadeBluePrint
+  - Bullet
+  - Enemy
+  - SpikeTrapBluePrint
   layers:
   - Default
   - TransparentFX
@@ -15,10 +22,10 @@ TagManager:
   - Collectable
   - Interactable
   - Player
-  - 
-  - 
-  - 
-  - 
+  - InvItem
+  - Ghost
+  - Weapon
+  - Enemy
   - 
   - 
   - 

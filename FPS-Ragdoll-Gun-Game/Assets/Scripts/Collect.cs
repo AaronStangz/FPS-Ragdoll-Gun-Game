@@ -8,13 +8,16 @@ public class Collect : MonoBehaviour
     public float pickUpRange;
 
     [Header("What To Give")]
-    public int AmountToGiveMeds;
-    public int AmountToGiveEnergyDrink;
-    public int AmountToGiveEnergyBar;
+    public int GiveBarricadeBluePrint; 
+    public int GiveSpikeTrapBluePrint;
 
     [Header("Guns")]
     public int GiveAR15;
-    public int GiveAR47;
+    public int GiveAk47;
+
+    [Header("GunsParts")]
+    public int GiveAR15Parts;
+    public int GiveAK47Parts;
 
     GameObject player;
     ItemManager ItemManager;
@@ -25,29 +28,35 @@ public class Collect : MonoBehaviour
     }
     public void CollectItem()
     {
-        if (ItemManager.meds < ItemManager.maxMeds)
+        if (ItemManager.barricadeBluePrint < 1)
         {
-            ItemManager.meds += AmountToGiveMeds;
+            ItemManager.barricadeBluePrint += GiveBarricadeBluePrint;
             Destroy(gameObject);
         }
-        if(ItemManager.energyDrink < ItemManager.maxEnergyDrink)
+        if (ItemManager.spikeTrapBluePrint < 1)
         {
-            ItemManager.energyDrink += AmountToGiveEnergyDrink;
+            ItemManager.spikeTrapBluePrint += GiveSpikeTrapBluePrint;
             Destroy(gameObject);
         }
-        if (ItemManager.energyBar < ItemManager.maxEnergyBar)
-        {
-            ItemManager.energyBar += AmountToGiveEnergyBar;
-            Destroy(gameObject);
-        }
-        if (ItemManager.ar15 > 1)
+        if (ItemManager.ar15 < 1)
         {
             ItemManager.ar15 += GiveAR15;
             Destroy(gameObject);
         }
-        if (ItemManager.ar47 > 1)
+        if (ItemManager.ak47 < 1)
         {
-            ItemManager.ar47 += GiveAR47;
+            ItemManager.ak47 += GiveAk47;
+            Destroy(gameObject);
+        }
+
+        if (ItemManager.ar15Parts < 1000)
+        {
+            ItemManager.ar15Parts += GiveAR15Parts;
+            Destroy(gameObject);
+        }
+        if (ItemManager.ak47Parts < 1000)
+        {
+            ItemManager.ak47Parts += GiveAK47Parts;
             Destroy(gameObject);
         }
     }

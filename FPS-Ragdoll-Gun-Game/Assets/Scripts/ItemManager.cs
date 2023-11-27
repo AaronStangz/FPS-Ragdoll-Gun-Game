@@ -8,13 +8,12 @@ public class ItemManager : MonoBehaviour
     public int trashBlockCount;
 
     [Header("Items")]
-    public int meds;
-    public int energyDrink;
-    public int energyBar;
+    public int barricadeBluePrint;
+    public int spikeTrapBluePrint;
 
     [Header("Guns")]
     public int ar15;
-    public int ar47;
+    public int ak47;
     public int nato;
 
     [Header("ammo")]
@@ -22,8 +21,13 @@ public class ItemManager : MonoBehaviour
     public int smgAmmo;
     public int shotgunAmmo;
 
-    [Header("MaxItems")]
-    public int maxMeds;
-    public int maxEnergyDrink;
-    public int maxEnergyBar;
+    [Header("GunParts")]
+    public int ar15Parts;
+    public int ak47Parts;
+    public int natoParts;
+
+    [Header("GunPartsNeeded")]
+    public int ar15PartsNeeded;
+    public int ak47PartsNeeded;
+    public int natoPartsNeeded;
 }

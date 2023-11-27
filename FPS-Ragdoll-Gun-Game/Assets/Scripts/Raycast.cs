@@ -8,10 +8,10 @@ public class Raycast : MonoBehaviour
 {
     [SerializeField] private LayerMask Interactable;
     [SerializeField] private LayerMask Collectable;
-    [SerializeField] private LayerMask InvItem;
 
     private LootBox LookingAtBox;
     private Collect LookingAtItem;
+    private WeaponSmith OpenMenu;
     void Update()
     {
         if (Camera.main == null) return;
@@ -20,7 +20,7 @@ public class Raycast : MonoBehaviour
 
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * 1000);
-        if (Physics.SphereCast(ray, 0.5f, out hit, 10, Interactable + Collectable + InvItem))
+        if (Physics.SphereCast(ray, 0.5f, out hit, 10, Interactable + Collectable))
         {   
             
             if (Interactable.value == (1 << hit.collider.gameObject.layer))
@@ -37,6 +37,21 @@ public class Raycast : MonoBehaviour
                         }
                     }
                 }
+
+                WeaponSmith station = hit.collider.GetComponent<WeaponSmith>();
+                if (station != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if (Vector3.Distance(transform.position, station.transform.position) < station.OpenRange)
+                        {
+                            Debug.Log("Opened");
+                            station.OpenMenu();
+                        }
+                    }
+                }
+
+
             }
             if (Collectable.value == (1 << hit.collider.gameObject.layer))
             {
@@ -52,7 +67,9 @@ public class Raycast : MonoBehaviour
                         }
                     }
                 }
-            } 
+            }     
         }
+
+      
     }
 }

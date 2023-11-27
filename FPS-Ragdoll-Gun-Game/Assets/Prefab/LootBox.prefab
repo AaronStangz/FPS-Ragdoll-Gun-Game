@@ -249,7 +249,8 @@ MonoBehaviour:
   lid: {fileID: 37471264134352498}
   spawnPoint: {fileID: 6491755220253950175}
   OpenRange: 5
-  Item: []
+  Item:
+  - {fileID: 8544925301612537630, guid: 84961bea132393f4898edbbfa5468a69, type: 3}
 --- !u!65 &8399782566983971634
 BoxCollider:
   m_ObjectHideFlags: 0
