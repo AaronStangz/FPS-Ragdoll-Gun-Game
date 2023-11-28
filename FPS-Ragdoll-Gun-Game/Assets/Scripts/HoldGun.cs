@@ -7,7 +7,12 @@ public class HoldGun : MonoBehaviour
     public Backpack backpack;
     public GameObject Barricade;
     public GameObject SpikeTrap;
+    public GameObject player;
 
+    void Start()
+    {
+        backpack = player.GetComponent<Backpack>();
+    }
     public void Ak47()
     {
         Debug.Log("holdingAK47");

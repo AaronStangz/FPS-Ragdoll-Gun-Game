@@ -43,6 +43,7 @@ public class Backpack : MonoBehaviour
 
         if (BackpackOpen == true)
         {
+            OpenHand = true;
             cam.enabled = false;
             move.enabled = false;
             OpenHand = false;
@@ -56,7 +57,6 @@ public class Backpack : MonoBehaviour
             backpack.SetActive(false);
             move.enabled = true;
             cam.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         if (OpenHand == true)
@@ -116,15 +116,13 @@ public class Backpack : MonoBehaviour
     ////////// Rifles //////////
     public void BackpackAR15()
     {
+        OpenHand = true;
         ar15Prefab.SetActive(true);
-        ak47Prefab.SetActive(false);
-        natoPrefab.SetActive(false);
     }
     public void BackpackAK47()
     {
-        ar15Prefab.SetActive(false);
+        OpenHand = true;
         ak47Prefab.SetActive(true);
-        natoPrefab.SetActive(false);
     }
 
 
@@ -138,7 +136,7 @@ public class Backpack : MonoBehaviour
     public void holdAR15()
     {
         Debug.Log("holdAR15");
-        OpenHand = false;
+        OpenHand = true;
         ar15OnHand.SetActive(true);
         ForceEscape();
         OpenHand = false;
@@ -149,12 +147,12 @@ public class Backpack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && BackpackOpen == true)
         {
             ForceEscape();
-            OpenHand = false;
         }
     }
 
     void ForceEscape()
     {
         BackpackOpen = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8287678203752069889}
   - component: {fileID: 6742114827840235195}
   m_Layer: 11
-  m_Name: Spike 1
+  m_Name: Spike Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,6 +16,7 @@ public class WeaponSmith : MonoBehaviour
 
     public float OpenRange;
     public bool IsOpen = false;
+    public bool DeSelect = false;
     bool ResearchPageIsOpen = false;
 
     public GameObject UI;
@@ -30,6 +31,10 @@ public class WeaponSmith : MonoBehaviour
     public GameObject AR15Lock;
     public GameObject AK47Lock;
 
+    [Header("LocksGun")]
+    public GameObject AR15Selected;
+    public GameObject AK47Selected;
+
     [Header("ResearchPage")]
     public GameObject ar15PartsText;
     public GameObject ak47PartsText;
@@ -37,7 +42,7 @@ public class WeaponSmith : MonoBehaviour
     void Start()
     {
         ItemManager = player.GetComponent<ItemManager>();
-        backpack = GetComponent<Backpack>();
+        backpack = player.GetComponent<Backpack>();
     }
 
     void Update()
@@ -49,7 +54,6 @@ public class WeaponSmith : MonoBehaviour
         if (IsOpen == false)
         {
             UI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         if (IsOpen == true)
@@ -58,6 +62,12 @@ public class WeaponSmith : MonoBehaviour
             cam.enabled = false;
             move.enabled = false;
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (DeSelect == true) 
+        {
+            AK47Selected.SetActive(false);
+            AR15Selected.SetActive(false);
         }
     }
 
@@ -136,13 +146,20 @@ public class WeaponSmith : MonoBehaviour
 
     public void SelectedAR15()
     {
+        DeSelect = true;
         Debug.Log("Selected");
         backpack.BackpackAR15();
+        //DeSelect = false;
+        AR15Selected.SetActive(true);
+
     }
-    public void SelectedAK14()
+    public void SelectedAK47()
     {
+        DeSelect = true;
         Debug.Log("Selected");
         backpack.BackpackAK47();
+        //DeSelect = false;
+        AK47Selected.SetActive(true);
     }
 
 
@@ -158,6 +175,7 @@ public class WeaponSmith : MonoBehaviour
     void ForceEscape()
     {
         IsOpen = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }
