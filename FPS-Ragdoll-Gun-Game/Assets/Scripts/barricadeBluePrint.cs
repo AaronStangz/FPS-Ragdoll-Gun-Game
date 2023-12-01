@@ -27,7 +27,7 @@ public class barricadeBluePrint : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gameObject.transform.rotation *= Quaternion.Euler(0, 25, 0);
+            gameObject.transform.rotation *= Quaternion.Euler(0, 1, 0);
         }
     }
 }

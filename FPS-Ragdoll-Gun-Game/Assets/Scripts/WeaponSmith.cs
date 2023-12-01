@@ -141,17 +141,17 @@ public class WeaponSmith : MonoBehaviour
     public void SelectedAR15()
     {
         Debug.Log("Selected");
-        backpack.BackpackAR15();
-       // backpack.OpenSlotRifleClose();
+        //backpack.OpenSlotRifleClose();
         AR15Selected.SetActive(true);
+        backpack.BackpackAR15();
 
     }
     public void SelectedAK47()
     {
         Debug.Log("Selected");
-        backpack.BackpackAK47();
         //backpack.OpenSlotRifleClose();
         AK47Selected.SetActive(true);
+        backpack.BackpackAK47();
     }
 
 

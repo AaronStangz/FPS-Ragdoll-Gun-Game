@@ -19,6 +19,10 @@ public class Backpack : MonoBehaviour
     [SerializeField] private PlayerMovement move;
     [SerializeField] private LayerMask InvItem;
 
+    [Header("On Hand BluePrints")]
+    public GameObject barricadeBluePrintPrefab;
+    public GameObject spikeTrapBluePrintPrefab;
+
     [Header("On Hand Guns")]
     public GameObject uIAmmoText;
     public GameObject ar15OnHand;
@@ -38,6 +42,7 @@ public class Backpack : MonoBehaviour
     void Update()
     {
         Escape();
+        ItemUpdate();
 
         if (Input.GetKeyDown(KeyCode.I) || (Input.GetKeyDown(KeyCode.Tab)))
         {
@@ -50,7 +55,7 @@ public class Backpack : MonoBehaviour
             uIAmmoText.SetActive(false);
             cam.enabled = false;
             move.enabled = false;
-            Fpcamera.transform.rotation = Quaternion.Euler(25, Fpcamera.transform.rotation.eulerAngles.y, Fpcamera.transform.rotation.eulerAngles.z);
+            Fpcamera.transform.rotation = Quaternion.Euler(35, Fpcamera.transform.rotation.eulerAngles.y, Fpcamera.transform.rotation.eulerAngles.z);
             backpack.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
@@ -123,6 +128,21 @@ public class Backpack : MonoBehaviour
         }
     }
 
+    public void ItemUpdate()
+    {
+        if (BackpackOpen == true)
+        {
+            if (ItemManager.barricadeBluePrint >= 1)
+            {
+                barricadeBluePrintPrefab.SetActive(true);
+            }
+            if (ItemManager.spikeTrapBluePrint >= 1)
+            {
+                spikeTrapBluePrintPrefab.SetActive(true);
+            }
+        }
+    }
+
     ////////// Rifles //////////
     public void BackpackAR15()
     {
@@ -147,6 +167,7 @@ public class Backpack : MonoBehaviour
 
     public void holdAR15()
     {
+        OpenSlotRifle = false;
         Debug.Log("holdAR15");
         ar15OnHand.SetActive(true);
         ForceEscape();
@@ -156,6 +177,7 @@ public class Backpack : MonoBehaviour
 
     public void holdAK47()
     {
+        OpenSlotRifle = false;
         Debug.Log("holdAK47");
         ak47OnHand.SetActive(true);
         ForceEscape();

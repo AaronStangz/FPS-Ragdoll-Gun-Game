@@ -256,6 +256,11 @@ MonoBehaviour:
   - {fileID: 7559347067490241368, guid: deeac78c94e2d5242a4f8aa3023a6fbd, type: 3}
   - {fileID: 3212152072638181364, guid: fd8ffefb1d4ea914cba632527c14e2c6, type: 3}
   - {fileID: 3106307458024442194, guid: a3b98999e54e93b41a8e57111d3eb1a8, type: 3}
+  - {fileID: 8756856870983915448, guid: 10bdcdb83d63b1242b42f7495adecae9, type: 3}
+  - {fileID: 2658039787785453307, guid: f7e5aa46a7b51ba4bb35ec28e2c6376e, type: 3}
+  - {fileID: 7803303241101507993, guid: 85ae7fed3e888804fa48dabbf4550e7e, type: 3}
+  - {fileID: 470124688666134603, guid: 4ba4598a5ec24744bbf8ea1b4732566f, type: 3}
+  - {fileID: 7614473444897567486, guid: 08ccbca3d240a354388b9360867eb241, type: 3}
 --- !u!65 &8506393711947950461
 BoxCollider:
   m_ObjectHideFlags: 0
