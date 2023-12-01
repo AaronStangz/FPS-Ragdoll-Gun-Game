@@ -38,16 +38,6 @@ public class Collect : MonoBehaviour
             ItemManager.spikeTrapBluePrint += GiveSpikeTrapBluePrint;
             Destroy(gameObject);
         }
-        if (ItemManager.ar15 < 1)
-        {
-            ItemManager.ar15 += GiveAR15;
-            Destroy(gameObject);
-        }
-        if (ItemManager.ak47 < 1)
-        {
-            ItemManager.ak47 += GiveAk47;
-            Destroy(gameObject);
-        }
 
         if (ItemManager.ar15Parts < 1000)
         {

@@ -9,7 +9,8 @@ public class Backpack : MonoBehaviour
     HoldGun HoldGun;
 
     public bool BackpackOpen = false;
-    public bool OpenHand;
+    public bool OpenHand; 
+    public bool OpenSlotRifle;
 
     public GameObject backpack;
     public GameObject Fpcamera;
@@ -19,7 +20,9 @@ public class Backpack : MonoBehaviour
     [SerializeField] private LayerMask InvItem;
 
     [Header("On Hand Guns")]
+    public GameObject uIAmmoText;
     public GameObject ar15OnHand;
+    public GameObject ak47OnHand;
 
     [Header("Slot 1 Rifles")]
     public GameObject ar15Prefab;
@@ -44,9 +47,9 @@ public class Backpack : MonoBehaviour
         if (BackpackOpen == true)
         {
             OpenHand = true;
+            uIAmmoText.SetActive(false);
             cam.enabled = false;
             move.enabled = false;
-            OpenHand = false;
             Fpcamera.transform.rotation = Quaternion.Euler(25, Fpcamera.transform.rotation.eulerAngles.y, Fpcamera.transform.rotation.eulerAngles.z);
             backpack.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -62,9 +65,16 @@ public class Backpack : MonoBehaviour
         if (OpenHand == true)
         {
             ar15OnHand.SetActive(false);
+            ak47OnHand.SetActive(false);
         }
 
-        if (Camera.main == null) return;
+        if (OpenSlotRifle == true)
+        {
+            ar15Prefab.SetActive(false);
+            ak47Prefab.SetActive(false);
+        }
+
+            if (Camera.main == null) return;
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 0;
@@ -116,11 +126,13 @@ public class Backpack : MonoBehaviour
     ////////// Rifles //////////
     public void BackpackAR15()
     {
+        //OpenSlotRifle = true;
         OpenHand = true;
         ar15Prefab.SetActive(true);
     }
     public void BackpackAK47()
     {
+        //OpenSlotRifle = true;
         OpenHand = true;
         ak47Prefab.SetActive(true);
     }
@@ -136,10 +148,29 @@ public class Backpack : MonoBehaviour
     public void holdAR15()
     {
         Debug.Log("holdAR15");
-        OpenHand = true;
         ar15OnHand.SetActive(true);
         ForceEscape();
+        uIAmmoText.SetActive(true);
         OpenHand = false;
+    }
+
+    public void holdAK47()
+    {
+        Debug.Log("holdAK47");
+        ak47OnHand.SetActive(true);
+        ForceEscape();
+        uIAmmoText.SetActive(true);
+        OpenHand = false;
+    }
+
+    public void OpenHandClose()
+    {
+        OpenHand = true;
+        uIAmmoText.SetActive(false);
+    }
+    public void OpenSlotRifleClose()
+    {
+        OpenSlotRifle = true;
     }
 
     void Escape()

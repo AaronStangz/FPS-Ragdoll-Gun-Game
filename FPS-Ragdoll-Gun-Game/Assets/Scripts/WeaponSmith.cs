@@ -16,7 +16,6 @@ public class WeaponSmith : MonoBehaviour
 
     public float OpenRange;
     public bool IsOpen = false;
-    public bool DeSelect = false;
     bool ResearchPageIsOpen = false;
 
     public GameObject UI;
@@ -62,12 +61,7 @@ public class WeaponSmith : MonoBehaviour
             cam.enabled = false;
             move.enabled = false;
             Cursor.lockState = CursorLockMode.None;
-        }
-
-        if (DeSelect == true) 
-        {
-            AK47Selected.SetActive(false);
-            AR15Selected.SetActive(false);
+            backpack.OpenHandClose();
         }
     }
 
@@ -146,19 +140,17 @@ public class WeaponSmith : MonoBehaviour
 
     public void SelectedAR15()
     {
-        DeSelect = true;
         Debug.Log("Selected");
         backpack.BackpackAR15();
-        //DeSelect = false;
+       // backpack.OpenSlotRifleClose();
         AR15Selected.SetActive(true);
 
     }
     public void SelectedAK47()
     {
-        DeSelect = true;
         Debug.Log("Selected");
         backpack.BackpackAK47();
-        //DeSelect = false;
+        //backpack.OpenSlotRifleClose();
         AK47Selected.SetActive(true);
     }
 

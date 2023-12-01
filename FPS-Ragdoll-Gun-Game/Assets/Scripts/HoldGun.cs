@@ -16,7 +16,7 @@ public class HoldGun : MonoBehaviour
     public void Ak47()
     {
         Debug.Log("holdingAK47");
-        backpack.holdAR15();
+        backpack.holdAK47();
     }
     public void AR15()
     {

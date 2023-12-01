@@ -5,16 +5,11 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     [Header("Mats")]
-    public int trashBlockCount;
+    public int goldBar;
 
     [Header("Items")]
     public int barricadeBluePrint;
     public int spikeTrapBluePrint;
-
-    [Header("Guns")]
-    public int ar15;
-    public int ak47;
-    public int nato;
 
     [Header("ammo")]
     public int arAmmo;

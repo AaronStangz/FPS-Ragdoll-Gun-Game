@@ -41,11 +41,8 @@ public class Gun: MonoBehaviour
     [Header("Graphics")]
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
-    public TextMeshProUGUI rToReload;
-    public GameObject rToreloadText;
 
 
-    //bug fixing :D
     public bool allowInvoke = true;
 
     private void Awake()
@@ -61,18 +58,17 @@ public class Gun: MonoBehaviour
         {
             MyInput();
             if (ammunitionDisplay != null)
-                ammunitionDisplay.SetText("Ammo " + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-        }
-        
-        if(bulletsLeft == 0 && !reloading)
-        {
-            rToreloadText.SetActive(true);
-        }
-        if(reloading)
-        {
-            rToreloadText.SetActive(false);
-        }
-       
+            {
+                ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+                if (reloading == true) 
+                {
+                    ammunitionDisplay.SetText(" Reloading ");
+                }
+                else
+                    ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+            }
+
+        } 
     }
     private void MyInput()
     {
@@ -95,7 +91,7 @@ public class Gun: MonoBehaviour
     {
         readyToShoot = false;
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); 
         RaycastHit hit;
 
 
@@ -103,16 +99,16 @@ public class Gun: MonoBehaviour
         if (Physics.Raycast(ray, out hit))
             targetPoint = hit.point;
         else
-            targetPoint = ray.GetPoint(75); //Just a point far away from the player
+            targetPoint = ray.GetPoint(75); 
 
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
 
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
 
-        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0); //Just add spread to last direction
+        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0); 
 
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); 
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
@@ -146,7 +142,7 @@ public class Gun: MonoBehaviour
     private void Reload()
     {
         reloading = true;
-        Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
+        Invoke("ReloadFinished", reloadTime); 
     }
     private void ReloadFinished()
     {
