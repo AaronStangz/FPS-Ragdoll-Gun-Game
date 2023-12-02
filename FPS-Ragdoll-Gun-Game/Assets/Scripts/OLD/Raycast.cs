@@ -12,6 +12,7 @@ public class Raycast : MonoBehaviour
     private LootBox LookingAtBox;
     private Collect LookingAtItem;
     private WeaponSmith OpenMenu;
+    private MapTable OpenMapMenu;
     void Update()
     {
         if (Camera.main == null) return;
@@ -47,6 +48,19 @@ public class Raycast : MonoBehaviour
                         {
                             Debug.Log("Opened");
                             station.OpenMenu();
+                        }
+                    }
+                }
+
+                MapTable table = hit.collider.GetComponent<MapTable>();
+                if (table != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if (Vector3.Distance(transform.position, table.transform.position) < table.OpenRange)
+                        {
+                            Debug.Log("Opened");
+                            table.OpenMenu();
                         }
                     }
                 }
