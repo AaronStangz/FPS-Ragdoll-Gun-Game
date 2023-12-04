@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class ItemManager : MonoBehaviour
 {
@@ -20,49 +21,37 @@ public class ItemManager : MonoBehaviour
     public int shotgunAmmo;
 
     [Header("GunParts")]
-    public int ar15Parts;
-    public int ak47Parts;
-    public int natoParts;
-    public int mCWParts;
-    public int aUGParts;
-    public int m14Parts;
-
-    public int desertEagleParts;
-    public int mK23Parts;
-    public int ocelotsRevolverParts;
-    public int mK23SocomParts;
-
-    public int leverActionParts;
-    public int tokarevParts;
+    public int assaultrifleParts;
+    public int eclipseEnforcerParts;
+    public int phantomwhisperParts;
+    [Header("")]
+    public int pistoleParts;
+    public int cobaltSentinelParts;
+    public int zenithDefenderParts;
+    [Header("")]
     public int doublebarrelParts;
-
-    public int m16Parts;
-    public int m240BParts;
-    public int mp5Parts;
-    public int cZBRENParts;
-    public int hkG36Parts;
-
+    public int emberGuardianParts;
+    public int phoenixWingParts;
+    [Header("")]
+    public int submachineParts;
+    public int nebulaHavocParts;
+    public int emberWarbringerParts;
 
     [Header("GunPartsNeeded")]
-    public int ar15PartsNeeded;
-    public int ak47PartsNeeded;
-    public int natoPartsNeeded;
-    public int mCWPartsNeeded;
-    public int aUGPartsNeeded;
-    public int m14PartsNeeded;
-
-    public int desertEaglePartsNeeded;
-    public int mK23PartsNeeded;
-    public int ocelotsRevolverPartsNeeded;
-    public int mK23SocomPartsNeeded;
-
-    public int leverActionPartsNeeded;
-    public int tokarevPartsNeeded;
+    public int assaultriflePartsNeeded;
+    public int eclipseEnforcerPartsNeeded;
+    public int phantomwhisperPartsNeeded;
+    [Header("")]
+    public int pistolePartsNeeded;
+    public int cobaltSentinelPartsNeeded;
+    public int zenithDefenderPartsNeeded;
+    [Header("")]
     public int doublebarrelPartsNeeded;
+    public int emberGuardianPartsNeeded;
+    public int phoenixWingPartsNeeded;
+    [Header("")]
+    public int submachinePartsNeeded;
+    public int nebulaHavocPartsNeeded;
+    public int emberWarbringerPartsNeeded;
 
-    public int m16PartsNeeded;
-    public int m240BPartsNeeded;
-    public int mp5PartsNeeded;
-    public int cZBRENPartsNeeded;
-    public int hkG36PartsNeeded;
 }

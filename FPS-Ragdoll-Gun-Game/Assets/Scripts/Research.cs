@@ -15,51 +15,40 @@ public class Research : MonoBehaviour
     public GameObject machineGunsTab;
     public GameObject bluePrintsTab;
 
-    [Header("GunParts")]
-    public GameObject ar15PartsText;
-    public GameObject ak47PartsText;
-    public GameObject natoPartsText;
-    public GameObject mCWPartsText;
-    public GameObject aUGPartsText;
-    public GameObject m14PartsText;
+    [Header("GunPartsText")]
+    public TMP_Text assaultriflePartsText;
+    public TMP_Text eclipseEnforcerPartsText;
+    public TMP_Text phantomwhisperPartsText;
+    [Header("")]
+    public TMP_Text pistolePartsText;
+    public TMP_Text cobaltSentinelPartsText;
+    public TMP_Text zenithDefenderPartsText;
+    [Header("")]
+    public TMP_Text doublebarrelPartsText;
+    public TMP_Text emberGuardianPartsText;
+    public TMP_Text phoenixWingPartsText;
+    [Header("")]
+    public TMP_Text submachinePartsText;
+    public TMP_Text nebulaHavocPartsText;
+    public TMP_Text emberWarbringerPartsText;
 
-    public GameObject desertEaglePartsText;
-    public GameObject mK23PartsText;
-    public GameObject ocelotsRevolverPartsText;
-    public GameObject mK23SocomPartsText;
+    [Header("GunLock")]
+    public GameObject assaultrifleLock;
+    public GameObject eclipseEnforcerLock;
+    public GameObject phantomwhisperLock;
+    [Header("")]
+    public GameObject pistoleLock;
+    public GameObject cobaltSentinelLock;
+    public GameObject zenithDefenderLock;
+    [Header("")]
+    public GameObject doublebarrelLock;
+    public GameObject emberGuardianLock;
+    public GameObject phoenixWingLock;
+    [Header("")]
+    public GameObject submachineLock;
+    public GameObject nebulaHavocLock;
+    public GameObject emberWarbringerLock;
 
-    public GameObject leverActionPartsText;
-    public GameObject tokarevPartsText;
-    public GameObject doublebarrelPartsText;
-
-    public GameObject m16PartsText;
-    public GameObject m240BPartsText;
-    public GameObject mp5PartsText;
-    public GameObject cZBRENPartsText;
-    public GameObject hkG36PartsText;
-
-    [Header("GunLocks")]
-    public GameObject ar15PartsLock;
-    public GameObject ak47PartsLock;
-    public GameObject natoPartsLock;
-    public GameObject mCWPartsLock;
-    public GameObject aUGPartsLock;
-    public GameObject m14PartsLock;
-
-    public GameObject desertEaglePartsLock;
-    public GameObject mK23PartsLock;
-    public GameObject ocelotsRevolverPartsLock;
-    public GameObject mK23SocomPartsLock;
-
-    public GameObject leverActionPartsLock;
-    public GameObject tokarevPartsLock;
-    public GameObject doublebarrelPartsLock;
-
-    public GameObject m16PartsLock;
-    public GameObject m240BPartsLock;
-    public GameObject mp5PartsLock;
-    public GameObject cZBRENPartsLock;
-    public GameObject hkG36PartsLock;
     void Start()
     {
         ItemManager = mainManger.GetComponent<ItemManager>();
@@ -116,132 +105,142 @@ public class Research : MonoBehaviour
 
     public void ResearchPartsTexts()
     {
-        ar15PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.ar15Parts + " / " + ItemManager.ar15PartsNeeded + " ";
-        ak47PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.ak47Parts + " / " + ItemManager.ak47PartsNeeded + " ";
-        natoPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.natoParts + " / " + ItemManager.natoPartsNeeded + " ";
-        mCWPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.mCWParts + " / " + ItemManager.mCWPartsNeeded + " ";
-        aUGPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.aUGParts + " / " + ItemManager.aUGPartsNeeded + " ";
-        m14PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.m14Parts + " / " + ItemManager.m14PartsNeeded + " ";
-        desertEaglePartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.desertEagleParts + " / " + ItemManager.desertEaglePartsNeeded + " ";
-        mK23PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.mK23Parts + " / " + ItemManager.mK23PartsNeeded + " ";
-        ocelotsRevolverPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.ocelotsRevolverParts + " / " + ItemManager.ocelotsRevolverPartsNeeded + " ";
-        mK23SocomPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.mK23SocomParts + " / " + ItemManager.mK23SocomPartsNeeded + " ";
-        leverActionPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.leverActionParts + " / " + ItemManager.leverActionPartsNeeded + " ";
-        tokarevPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.tokarevParts + " / " + ItemManager.tokarevPartsNeeded + " ";
-        doublebarrelPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.doublebarrelParts + " / " + ItemManager.doublebarrelPartsNeeded + " ";
-        m16PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.m16Parts + " / " + ItemManager.m16PartsNeeded + " ";
-        m240BPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.m240BParts + " / " + ItemManager.m240BPartsNeeded + " ";
-        mp5PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.mp5Parts + " / " + ItemManager.mp5PartsNeeded + " ";
-        cZBRENPartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.cZBRENParts + " / " + ItemManager.cZBRENPartsNeeded + " ";
-        hkG36PartsText.GetComponent<TextMeshProUGUI>().text = "Parts: " + ItemManager.hkG36Parts + " / " + ItemManager.hkG36PartsNeeded + " ";
+        assaultriflePartsText.text = "Parts: " + ItemManager.assaultrifleParts + " / " + ItemManager.assaultriflePartsNeeded + " ";
+        eclipseEnforcerPartsText.text = "Parts: " + ItemManager.eclipseEnforcerParts + " / " + ItemManager.eclipseEnforcerPartsNeeded + " ";
+        phantomwhisperPartsText.text = "Parts: " + ItemManager.phantomwhisperParts + " / " + ItemManager.phantomwhisperPartsNeeded + " ";
+
+        pistolePartsText.text = "Parts: " + ItemManager.pistoleParts + " / " + ItemManager.pistolePartsNeeded + " ";
+        cobaltSentinelPartsText.text = "Parts: " + ItemManager.cobaltSentinelParts + " / " + ItemManager.cobaltSentinelPartsNeeded + " ";
+        zenithDefenderPartsText.text = "Parts: " + ItemManager.zenithDefenderParts + " / " + ItemManager.zenithDefenderPartsNeeded + " ";
+
+        doublebarrelPartsText.text = "Parts: " + ItemManager.doublebarrelParts + " / " + ItemManager.doublebarrelPartsNeeded + " ";
+        emberGuardianPartsText.text = "Parts: " + ItemManager.emberGuardianParts + " / " + ItemManager.emberGuardianPartsNeeded + " ";
+        phoenixWingPartsText.text = "Parts: " + ItemManager.phoenixWingParts + " / " + ItemManager.phoenixWingPartsNeeded + " ";
+
+        submachinePartsText.text = "Parts: " + ItemManager.submachineParts + " / " + ItemManager.submachinePartsNeeded + " ";
+        nebulaHavocPartsText.text = "Parts: " + ItemManager.nebulaHavocParts + " / " + ItemManager.nebulaHavocPartsNeeded + " ";
+        emberWarbringerPartsText.text = "Parts: " + ItemManager.emberWarbringerParts + " / " + ItemManager.emberWarbringerPartsNeeded + " ";
     }
 
-    public void AR15Lock()
+    public void AssaultrifleLock()
     {
-        Debug.Log("ReSearched");
-        ar15PartsLock.SetActive(false);
-        ItemManager.ar15Parts -= ItemManager.ar15PartsNeeded;
+        if(ItemManager.assaultrifleParts >= ItemManager.assaultriflePartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            assaultrifleLock.SetActive(false);
+            ItemManager.assaultrifleParts -= ItemManager.assaultriflePartsNeeded;
+        }
     }
-    public void AK47Lock()
+
+    public void EclipseEnforcerLock()
     {
-        Debug.Log("ReSearched");
-        ak47PartsLock.SetActive(false);
-        ItemManager.ak47Parts -= ItemManager.ak47PartsNeeded;
+        if (ItemManager.eclipseEnforcerParts >= ItemManager.eclipseEnforcerPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            eclipseEnforcerLock.SetActive(false);
+            ItemManager.eclipseEnforcerParts -= ItemManager.eclipseEnforcerPartsNeeded;
+
+        }
     }
-    public void NATOLock()
+
+    public void PhantomwhisperLock()
     {
-        Debug.Log("ReSearched");
-        natoPartsLock.SetActive(false);
-        ItemManager.natoParts -= ItemManager.natoPartsNeeded;
+        if (ItemManager.phantomwhisperParts >= ItemManager.phantomwhisperPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            phantomwhisperLock.SetActive(false);
+            ItemManager.phantomwhisperParts -= ItemManager.phantomwhisperPartsNeeded;
+
+        }
     }
-    public void MCWLock()
+    public void PistoleLock()
     {
-        Debug.Log("ReSearched");
-        mCWPartsLock.SetActive(false);
-        ItemManager.mCWParts -= ItemManager.mCWPartsNeeded;
+        if (ItemManager.pistoleParts >= ItemManager.pistolePartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            pistoleLock.SetActive(false);
+            ItemManager.pistoleParts -= ItemManager.pistolePartsNeeded;
+
+        }
     }
-    public void AUGLock()
+    public void CobaltSentinelLock()
     {
-        Debug.Log("ReSearched");
-        aUGPartsLock.SetActive(false);
-        ItemManager.aUGParts -= ItemManager.aUGPartsNeeded;
+        if (ItemManager.cobaltSentinelParts >= ItemManager.cobaltSentinelPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            cobaltSentinelLock.SetActive(false);
+            ItemManager.cobaltSentinelParts -= ItemManager.cobaltSentinelPartsNeeded;
+
+        }
     }
-    public void M14Lock()
+    public void ZenithDefenderLock()
     {
-        Debug.Log("ReSearched");
-        m14PartsLock.SetActive(false);
-        ItemManager.m14Parts -= ItemManager.m14PartsNeeded;
+        if (ItemManager.zenithDefenderParts >= ItemManager.zenithDefenderPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            zenithDefenderLock.SetActive(false);
+            ItemManager.zenithDefenderParts -= ItemManager.zenithDefenderPartsNeeded;
+
+        }
     }
-    public void DesretEagleLock()
+    public void DoublebarrelLock()
     {
-        Debug.Log("ReSearched");
-        desertEaglePartsLock.SetActive(false);
-        ItemManager.desertEagleParts -= ItemManager.desertEaglePartsNeeded;
+        if (ItemManager.doublebarrelParts >= ItemManager.doublebarrelPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            doublebarrelLock.SetActive(false);
+            ItemManager.doublebarrelParts -= ItemManager.doublebarrelPartsNeeded;
+
+        }
     }
-    public void MK23Lock()
+    public void EmberGuardianLock()
     {
-        Debug.Log("ReSearched");
-        mK23PartsLock.SetActive(false);
-        ItemManager.mK23Parts -= ItemManager.mK23PartsNeeded;
+        if (ItemManager.emberGuardianParts >= ItemManager.emberGuardianPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            emberGuardianLock.SetActive(false);
+            ItemManager.emberGuardianParts -= ItemManager.emberGuardianPartsNeeded;
+
+        }
     }
-    public void OcelotsRevolverLock()
+    public void PhoenixWingLock()
     {
-        Debug.Log("ReSearched");
-        ocelotsRevolverPartsLock.SetActive(false);
-        ItemManager.ocelotsRevolverParts -= ItemManager.ocelotsRevolverPartsNeeded;
+        if (ItemManager.phoenixWingParts >= ItemManager.phoenixWingPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            phoenixWingLock.SetActive(false);
+            ItemManager.phoenixWingParts -= ItemManager.phoenixWingPartsNeeded;
+
+        }
     }
-    public void MK23SocomLock()
+    public void SubmachineLock()
     {
-        Debug.Log("ReSearched");
-        mK23SocomPartsLock.SetActive(false);
-        ItemManager.mK23SocomParts -= ItemManager.mK23SocomPartsNeeded;
+        if (ItemManager.submachineParts >= ItemManager.submachinePartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            submachineLock.SetActive(false);
+            ItemManager.submachineParts -= ItemManager.submachinePartsNeeded;
+
+        }
     }
-    public void LeverActionLock()
+    public void NebulaHavocLock()
     {
-        Debug.Log("ReSearched");
-        leverActionPartsLock.SetActive(false);
-        ItemManager.leverActionParts -= ItemManager.leverActionPartsNeeded;
+        if (ItemManager.nebulaHavocParts >= ItemManager.nebulaHavocPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            nebulaHavocLock.SetActive(false);
+            ItemManager.nebulaHavocParts -= ItemManager.nebulaHavocPartsNeeded;
+
+        }
     }
-    public void TokarevLock()
+    public void EmberWarbringerLock()
     {
-        Debug.Log("ReSearched");
-        tokarevPartsLock.SetActive(false);
-        ItemManager.tokarevPartsNeeded -= ItemManager.tokarevPartsNeeded;
-    }
-    public void doublebarrelLock()
-    {
-        Debug.Log("ReSearched");
-        doublebarrelPartsLock.SetActive(false);
-        ItemManager.doublebarrelParts -= ItemManager.doublebarrelPartsNeeded;
-    }
-    public void M16Lock()
-    {
-        Debug.Log("ReSearched");
-        m16PartsLock.SetActive(false);
-        ItemManager.m16Parts -= ItemManager.m16PartsNeeded;
-    }
-    public void M240BLock()
-    {
-        Debug.Log("ReSearched");
-        m240BPartsLock.SetActive(false);
-        ItemManager.m240BParts -= ItemManager.m240BPartsNeeded;
-    }
-    public void Mp5Lock()
-    {
-        Debug.Log("ReSearched");
-        mp5PartsLock.SetActive(false);
-        ItemManager.mp5Parts -= ItemManager.mp5PartsNeeded;
-    }
-    public void CZBREN()
-    {
-        Debug.Log("ReSearched");
-        cZBRENPartsLock.SetActive(false);
-        ItemManager.cZBRENParts -= ItemManager.cZBRENPartsNeeded;
-    }
-    public void HKG36()
-    {
-        Debug.Log("ReSearched");
-        hkG36PartsLock.SetActive(false);
-        ItemManager.hkG36Parts -= ItemManager.hkG36PartsNeeded;
+        if (ItemManager.emberWarbringerParts >= ItemManager.emberWarbringerPartsNeeded)
+        {
+            Debug.Log("ReSearched");
+            emberWarbringerLock.SetActive(false);
+            ItemManager.emberWarbringerParts -= ItemManager.emberWarbringerPartsNeeded;
+
+        }
     }
 }

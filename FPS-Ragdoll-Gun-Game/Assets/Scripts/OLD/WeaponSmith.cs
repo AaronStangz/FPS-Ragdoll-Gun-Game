@@ -109,21 +109,21 @@ public class WeaponSmith : MonoBehaviour
 
     public void ResearchAr15()
     {
-        if(ItemManager.ar15PartsNeeded <= ItemManager.ar15Parts)
+       // if(ItemManager.ar15PartsNeeded <= ItemManager.ar15Parts)
         {
             Debug.Log("ReSearched");
             AR15Lock.SetActive(false);
-            ItemManager.ar15Parts -= ItemManager.ar15PartsNeeded;
+            //ItemManager.ar15Parts -= ItemManager.ar15PartsNeeded;
         }
     }
 
     public void ResearchAk47()
     {
-        if (ItemManager.ak47PartsNeeded <= ItemManager.ak47Parts)
+       // if (ItemManager.ak47PartsNeeded <= ItemManager.ak47Parts)
         {
             Debug.Log("ReSearched");
             AK47Lock.SetActive(false);
-            ItemManager.ak47Parts -= ItemManager.ak47PartsNeeded;
+           // ItemManager.ak47Parts -= ItemManager.ak47PartsNeeded;
         }
     }
 
@@ -131,8 +131,8 @@ public class WeaponSmith : MonoBehaviour
     {
         if(ResearchPageIsOpen == true)
         {
-            ar15PartsText.GetComponent<TextMeshProUGUI>().text = "(Parts: " + ItemManager.ar15Parts + " / " + ItemManager.ar15PartsNeeded + " )";
-            ak47PartsText.GetComponent<TextMeshProUGUI>().text = "(Parts: " + ItemManager.ak47Parts + " / " + ItemManager.ak47PartsNeeded + " )";
+            //ar15PartsText.GetComponent<TextMeshProUGUI>().text = "(Parts: " + ItemManager.ar15Parts + " / " + ItemManager.ar15PartsNeeded + " )";
+            //ak47PartsText.GetComponent<TextMeshProUGUI>().text = "(Parts: " + ItemManager.ak47Parts + " / " + ItemManager.ak47PartsNeeded + " )";
         }
     }
 
