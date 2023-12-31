@@ -127,17 +127,17 @@ public class Research : MonoBehaviour
         if(ItemManager.assaultrifleParts >= ItemManager.assaultriflePartsNeeded)
         {
             Debug.Log("ReSearched");
-            assaultrifleLock.SetActive(false);
+            Destroy(assaultrifleLock);
             ItemManager.assaultrifleParts -= ItemManager.assaultriflePartsNeeded;
         }
+        
     }
-
     public void EclipseEnforcerLock()
     {
         if (ItemManager.eclipseEnforcerParts >= ItemManager.eclipseEnforcerPartsNeeded)
         {
             Debug.Log("ReSearched");
-            eclipseEnforcerLock.SetActive(false);
+            Destroy(eclipseEnforcerLock);
             ItemManager.eclipseEnforcerParts -= ItemManager.eclipseEnforcerPartsNeeded;
 
         }
@@ -148,7 +148,7 @@ public class Research : MonoBehaviour
         if (ItemManager.phantomwhisperParts >= ItemManager.phantomwhisperPartsNeeded)
         {
             Debug.Log("ReSearched");
-            phantomwhisperLock.SetActive(false);
+            Destroy(phantomwhisperLock);
             ItemManager.phantomwhisperParts -= ItemManager.phantomwhisperPartsNeeded;
 
         }
@@ -158,7 +158,7 @@ public class Research : MonoBehaviour
         if (ItemManager.pistoleParts >= ItemManager.pistolePartsNeeded)
         {
             Debug.Log("ReSearched");
-            pistoleLock.SetActive(false);
+            Destroy(pistoleLock);
             ItemManager.pistoleParts -= ItemManager.pistolePartsNeeded;
 
         }
@@ -168,7 +168,7 @@ public class Research : MonoBehaviour
         if (ItemManager.cobaltSentinelParts >= ItemManager.cobaltSentinelPartsNeeded)
         {
             Debug.Log("ReSearched");
-            cobaltSentinelLock.SetActive(false);
+            Destroy(cobaltSentinelLock);
             ItemManager.cobaltSentinelParts -= ItemManager.cobaltSentinelPartsNeeded;
 
         }
@@ -178,7 +178,7 @@ public class Research : MonoBehaviour
         if (ItemManager.zenithDefenderParts >= ItemManager.zenithDefenderPartsNeeded)
         {
             Debug.Log("ReSearched");
-            zenithDefenderLock.SetActive(false);
+            Destroy(zenithDefenderLock);
             ItemManager.zenithDefenderParts -= ItemManager.zenithDefenderPartsNeeded;
 
         }
@@ -188,7 +188,7 @@ public class Research : MonoBehaviour
         if (ItemManager.doublebarrelParts >= ItemManager.doublebarrelPartsNeeded)
         {
             Debug.Log("ReSearched");
-            doublebarrelLock.SetActive(false);
+            Destroy(doublebarrelLock);
             ItemManager.doublebarrelParts -= ItemManager.doublebarrelPartsNeeded;
 
         }
@@ -198,7 +198,7 @@ public class Research : MonoBehaviour
         if (ItemManager.emberGuardianParts >= ItemManager.emberGuardianPartsNeeded)
         {
             Debug.Log("ReSearched");
-            emberGuardianLock.SetActive(false);
+            Destroy(emberGuardianLock);
             ItemManager.emberGuardianParts -= ItemManager.emberGuardianPartsNeeded;
 
         }
@@ -208,7 +208,7 @@ public class Research : MonoBehaviour
         if (ItemManager.phoenixWingParts >= ItemManager.phoenixWingPartsNeeded)
         {
             Debug.Log("ReSearched");
-            phoenixWingLock.SetActive(false);
+            Destroy(phoenixWingLock);
             ItemManager.phoenixWingParts -= ItemManager.phoenixWingPartsNeeded;
 
         }
@@ -218,7 +218,7 @@ public class Research : MonoBehaviour
         if (ItemManager.submachineParts >= ItemManager.submachinePartsNeeded)
         {
             Debug.Log("ReSearched");
-            submachineLock.SetActive(false);
+            Destroy(submachineLock);
             ItemManager.submachineParts -= ItemManager.submachinePartsNeeded;
 
         }
@@ -228,7 +228,7 @@ public class Research : MonoBehaviour
         if (ItemManager.nebulaHavocParts >= ItemManager.nebulaHavocPartsNeeded)
         {
             Debug.Log("ReSearched");
-            nebulaHavocLock.SetActive(false);
+            Destroy(nebulaHavocLock);
             ItemManager.nebulaHavocParts -= ItemManager.nebulaHavocPartsNeeded;
 
         }
@@ -238,7 +238,7 @@ public class Research : MonoBehaviour
         if (ItemManager.emberWarbringerParts >= ItemManager.emberWarbringerPartsNeeded)
         {
             Debug.Log("ReSearched");
-            emberWarbringerLock.SetActive(false);
+            Destroy(emberWarbringerLock);
             ItemManager.emberWarbringerParts -= ItemManager.emberWarbringerPartsNeeded;
 
         }

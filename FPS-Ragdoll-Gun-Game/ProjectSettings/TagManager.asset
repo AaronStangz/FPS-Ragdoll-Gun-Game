@@ -11,6 +11,18 @@ TagManager:
   - Bullet
   - Enemy
   - SpikeTrapBluePrint
+  - assaultrifle
+  - eclipseEnforcer
+  - phantomwhisper
+  - cobaltSentinel
+  - zenithDefender
+  - doublebarrel
+  - emberGuardian
+  - phoenixWing
+  - submachine
+  - nebulaHavoc
+  - emberWarbringer
+  - Pistol
   layers:
   - Default
   - TransparentFX

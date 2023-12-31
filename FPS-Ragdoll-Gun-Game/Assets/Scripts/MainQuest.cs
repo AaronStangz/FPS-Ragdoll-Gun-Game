@@ -19,12 +19,15 @@ public class MainQuest : MonoBehaviour
 
     [Header("Quest")]
     public GameObject QuestNum1;
+    public GameObject QuestNum1Start;
     public GameObject QuestNum2Lock;
     [Header("")]
     public GameObject QuestNum2;
+    public GameObject QuestNum2Start;
     public GameObject QuestNum3Lock;
     [Header("")]
     public GameObject QuestNum3;
+    public GameObject QuestNum3Start;
     public GameObject QuestNum4Lock;
     [Header("")]
     public GameObject QuestNum5Lock;
@@ -57,6 +60,7 @@ public class MainQuest : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         QuestNum1.SetActive(false);
         MainMenu.SetActive(true);
+        Destroy(QuestNum1Start);
         QuestNum2Lock.SetActive(false);
     }
 
@@ -72,6 +76,7 @@ public class MainQuest : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         QuestNum2.SetActive(false);
         MainMenu.SetActive(true);
+        Destroy(QuestNum2Start);
        // QuestNum3Lock.SetActive(false);
     }
 
